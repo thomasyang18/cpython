@@ -93,6 +93,7 @@ def dis(x=None, *, file=None, depth=None, show_caches=False, adaptive=False):
         x = x.cr_code
     # Perform the disassembly.
     if hasattr(x, '__dict__'):  # Class or module
+        print("Disassembly of %s:" % x.__name__, file=file) # Print its own name as well
         items = sorted(x.__dict__.items())
         for name, x1 in items:
             if isinstance(x1, _have_code):
